@@ -1,0 +1,17 @@
+version: "3.7"
+
+services:
+  fastapi: &fastapi-app-base
+    build:
+      context: .
+    volumes:
+      - ./main.py:/app/main.py
+    ports:
+      - "5001:5000"
+    env_file:
+      - .env
+    command: /bin/bash
+  fastapi-app-dev:
+    <<: *fastapi-app-base
+    command: uvicorn --reload --workers 1 --host 0.0.0.0 --port 5000 main:app
+
