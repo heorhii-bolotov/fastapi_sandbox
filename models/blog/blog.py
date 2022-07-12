@@ -18,6 +18,7 @@ class BlogModel(BaseModel):
     tags: List[str] = []
     metadata: Dict[str, str] = {"key1": "value1"}
 
+
 class Image(BaseModel):
     url: str
     alias: str

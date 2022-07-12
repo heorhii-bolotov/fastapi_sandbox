@@ -2,3 +2,6 @@ black
 pytest
 fastapi
 uvicorn
+sqlalchemy
+passlib
+bcrypt

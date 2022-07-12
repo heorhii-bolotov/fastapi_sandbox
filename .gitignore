@@ -107,3 +107,7 @@ venv.bak/
 .mypy_cache/
 
 .idea/*
+
+# Ignore the default SQLite database.
+/db/*.sqlite3
+*.db

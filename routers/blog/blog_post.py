@@ -1,4 +1,4 @@
-from typing import List, Optional
+from typing import Dict, List, Optional
 from fastapi import FastAPI, status, Response, APIRouter, Query, Path, Body
 from pydantic import BaseModel
 from models.blog.blog import BlogModel
@@ -24,7 +24,7 @@ def create_comment(
     ),
     content: str = Body(..., min_length=10, max_length=50, regex="^[a-z\s]*$"),
     v: Optional[List[str]] = Query(["1.1", "1.2", "1.3"]),
-    comment_id: int = Path(None, gt=5, le=10)
+    comment_id: int = Path(None, gt=5, le=10),
 ) -> Response:
     return {
         "id": id,
@@ -34,3 +34,7 @@ def create_comment(
         "content": content,
         "version": v,
     }
+
+
+def required_functionality() -> Dict[str, str]:
+    return {"message": f"Learning FastAPI is important"}
