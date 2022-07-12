@@ -5,7 +5,7 @@ from db import db_article
 from models.user.schemas import ArticleBase, ArticleDisplay
 from sqlalchemy.orm.session import Session
 
-router = APIRouter(prefix="/user", tags=["user"])
+router = APIRouter(prefix="/article", tags=["article"])
 
 
 @router.post("/", response_model=ArticleDisplay)
